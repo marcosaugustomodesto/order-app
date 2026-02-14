@@ -1,59 +1,131 @@
-# OrderApp
+# 🛒 Order App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Aplicação de pedidos desenvolvida com **Angular (Standalone API)**
+utilizando arquitetura moderna baseada em **Core / Shared / Features** e
+gerenciamento de estado com **Signals**.
 
-## Development server
+------------------------------------------------------------------------
 
-To start a local development server, run:
+## 🚀 Tecnologias
 
-```bash
+-   Angular 21+
+-   Standalone Components
+-   Angular Signals
+-   TypeScript
+-   SCSS
+-   CSS Grid
+-   Git & GitHub
+
+------------------------------------------------------------------------
+
+## 📂 Arquitetura
+
+O projeto segue uma estrutura escalável organizada por domínio:
+
+    src/app/
+      core/        → Serviços globais e estado da aplicação
+      shared/      → Componentes reutilizáveis (UI + Layout)
+      features/    → Funcionalidades de domínio (Products)
+
+### Core
+
+-   `CartService` com Signals
+-   Estado global reativo
+-   Computed properties para total de itens e valor total
+
+### Shared
+
+-   Button\
+-   Card\
+-   Container\
+-   Header
+
+### Features
+
+-   Products
+    -   Model tipado (`Product`)\
+    -   Lista mockada\
+    -   Integração com CartService
+
+------------------------------------------------------------------------
+
+## 🛒 Funcionalidades
+
+-   📦 Listagem de produtos
+-   ➕ Adição de itens ao carrinho
+-   🔢 Contador global reativo no header
+-   💰 Cálculo automático de total com `computed()`
+-   🎨 Componentes reutilizáveis (Design System básico)
+
+------------------------------------------------------------------------
+
+## 🧠 Conceitos Aplicados
+
+-   Standalone API (sem NgModules)
+-   Injeção de dependência moderna
+-   Signals para gerenciamento de estado
+-   Computed properties
+-   Content projection (`ng-content`)
+-   Separação de responsabilidades
+-   Estrutura escalável por domínio
+
+------------------------------------------------------------------------
+
+## ⚙️ Development Server
+
+Clone o repositório:
+
+``` bash
+git clone https://github.com/marcosaugustomodesto/order-app.git
+```
+
+Entre na pasta do projeto:
+
+``` bash
+cd order-app
+```
+
+Instale as dependências:
+
+``` bash
+npm install
+```
+
+Execute o servidor de desenvolvimento:
+
+``` bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Acesse no navegador:
 
-## Code scaffolding
+http://localhost:4200
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+------------------------------------------------------------------------
 
-```bash
-ng generate component component-name
-```
+## 🧪 Running Tests
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Execute os testes unitários com:
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
+``` bash
 ng test
 ```
 
-## Running end-to-end tests
+------------------------------------------------------------------------
 
-For end-to-end (e2e) testing, run:
+## 📈 Próximas Evoluções
 
-```bash
-ng e2e
-```
+-   Drawer de carrinho
+-   Remoção de produtos
+-   Persistência com localStorage
+-   Lazy Loading
+-   Página de checkout
+-   Integração com API
+-   Deploy público
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+------------------------------------------------------------------------
 
-## Additional Resources
+## 👨‍💻 Autor
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Marcos Augusto Modesto**\
+GitHub: https://github.com/marcosaugustomodesto
