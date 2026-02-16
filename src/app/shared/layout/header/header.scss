@@ -11,3 +11,39 @@
     font-weight: bold;
     font-size: 18px;
 }
+
+.cart-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Badge */
+.badge {
+    background: #ef4444;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 999px;
+    min-width: 20px;
+    text-align: center;
+
+    animation: bump 0.3s ease;
+}
+
+/* Animação */
+@keyframes bump {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

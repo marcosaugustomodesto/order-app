@@ -3,13 +3,13 @@ import { CartService } from '../../../core/services/cart.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-cart-drawer',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './header.html',
-  styleUrl: './header.scss',
+  templateUrl: './cart-drawer.html',
+  styleUrl: './cart-drawer.scss',
 })
-export class Header {
-    //constructor(public cartService: CartService) {}
-    cartService = inject(CartService);
+export class CartDrawer {
+  cartService = inject(CartService);
+
 }

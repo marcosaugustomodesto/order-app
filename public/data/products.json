@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Notebook Pro",
+        "description": "Notebook de alta performance",
+        "price": 7999,
+        "imageUrl": "/assets/products/notebook.png"
+    },
+    {
+        "id": 2,
+        "name": "Smartphone X",
+        "description": "Smartphone última geração",
+        "price": 4999,
+        "imageUrl": "/assets/products/smartphone.png"
+    },
+    {
+        "id": 3,
+        "name": "Fone Bluetooth",
+        "description": "Cancelamento de ruído",
+        "price": 899,
+        "imageUrl": "/assets/products/fone.png"
+    }
+]

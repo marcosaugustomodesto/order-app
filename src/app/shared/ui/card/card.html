@@ -1,3 +1,15 @@
 <div class="card">
-    <ng-content></ng-content>
+    <img [src]="product.imageUrl" [alt]="product.name">
+
+    <h3>{{ product.name }}</h3>
+
+    <p>{{ product.description }}</p>
+
+    <strong class="price">
+        R$ {{ product.price }}
+    </strong>
+
+    <app-button (click)="add.emit(product)">
+        Adicionar
+    </app-button>
 </div>

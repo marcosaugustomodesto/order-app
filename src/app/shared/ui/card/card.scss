@@ -4,6 +4,25 @@
     border-radius: var(--radius-lg);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.card h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.card p {
+    margin-bottom: var(--spacing-sm);
 }
 
 .card:hover {

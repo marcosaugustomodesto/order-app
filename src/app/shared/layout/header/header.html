@@ -1,7 +1,13 @@
 <header class="header">
     <h1>Order App</h1>
 
-    <div class="cart">
-        🛒 {{ cartService.totalItems() }}
-    </div>
+    <button class="btn primary cart-button" (click)="cartService.toggle()">
+
+        Carrinho
+
+        <span class="badge" *ngIf="cartService.totalItems() > 0">
+            {{ cartService.totalItems() }}
+        </span>
+
+    </button>
 </header>

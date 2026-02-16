@@ -1,11 +1,14 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--spacing-lg)
+    gap: var(--spacing-lg);
 }
 
-img {
-    width: 100%;
-    border-radius: var(--radius-md);
+app-card {
+    display: flex;
+}
+
+.price {
     margin-bottom: var(--spacing-md);
+    font-weight: bold;
 }

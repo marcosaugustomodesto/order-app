@@ -1,0 +1,53 @@
+<div class="drawer" *ngIf="cartService.isOpen()">
+    <div class="drawer-header">
+        <h2>Seu Carrinho</h2>
+        <button class="btn  secondary" (click)="cartService.close()">
+            Fechar
+        </button>
+    </div>
+    <div class="drawer-content">
+        <div *ngIf="cartService.totalItems() === 0">
+            Carrinho vazio
+        </div>
+        <div *ngFor="let item of cartService.items()">
+            <div class="item">
+
+                <div class="item-info">
+                    <strong>{{ item.product.name }}</strong>
+                    <span>
+                        R$ {{ item.product.price }} x {{ item.quantity }}
+                    </span>
+                    <small>
+                        Subtotal:
+                        R$ {{ item.product.price * item.quantity }}
+                    </small>
+                </div>
+
+                <div class="item-actions">
+
+                    <button class="btn secondary" (click)="cartService.decrease(item.product.id)">
+                        -
+                    </button>
+                    <span class="quantity">
+                        {{ item.quantity }}
+                    </span>
+
+                    <button class="btn secondary" (click)="cartService.increase(item.product.id)">
+                        +
+                    </button>
+
+                    <button class="btn" (click)="cartService.remove(item.product.id)">
+                        🗑
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="drawer-footer" *ngIf="cartService.totalItems() > 0">
+        <strong>Total: R$ {{ cartService.totalPrice() }}</strong>
+        <button class="btn primary" (click)="cartService.clear()">
+            Limpar Carrinho
+        </button>
+    </div>
+</div>

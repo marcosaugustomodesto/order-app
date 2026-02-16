@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Card } from '../../shared/ui/card/card';
 import { Button } from '../../shared/ui/button/button';
 import { Product } from './models/product.model';
 import { CartService } from '../../core/services/cart.service';
+import { ProductService } from '../../core/services/product.service';
 
 
 @Component({
@@ -14,30 +15,27 @@ import { CartService } from '../../core/services/cart.service';
   styleUrl: './products.scss',
 })
 export class Products {
-  constructor(private cartService: CartService){}
-  products: Product[] = [
-    {
-      id: 1,
-      name: 'Notebook Pro',
-      description: 'Notebook de alta performance',
-      price: 7999,
-      imageUrl: 'https://via.placeholder.com/300x200'
-    },
-    {
-      id: 2,
-      name: 'Smartphone X',
-      description: 'Smartphone última geração',
-      price: 4999,
-      imageUrl: 'https://via.placeholder.com/300x200'
-    },
-    {
-      id: 3,
-      name: 'Fone Bluetooth',
-      description: 'Cancelamento de ruído',
-      price: 899,
-      imageUrl: 'https://via.placeholder.com/300x200'
-    }
-  ];
+  private cartService = inject(CartService);
+  private productService = inject(ProductService);
+
+  products = signal<Product[]>([]);
+  loading = signal(true);
+
+  constructor(){
+    this.loadProducts();
+  }
+
+  loadProducts(){
+    this.productService.getProducts().subscribe({
+      next: (data) => {
+        this.products.set(data);
+        this.loading.set(false);
+      },
+      error: () => {
+        this.loading.set(false);
+      }
+    });
+  }
   
   addToCart(product:Product){
     this.cartService.add(product);
