@@ -7,9 +7,14 @@
     transition: all 0.2s ease-in-out;
 }
 
+.btn:active {
+    transform: scale(0.95);
+}
+
 .primary {
     background: var(--color-primary);
     color: white;
+    transition: transform 0.1s ease;
 }
 
 .primary:hover:not(:disabled) {

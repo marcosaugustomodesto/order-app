@@ -5,6 +5,7 @@ import { Header } from './shared/layout/header/header';
 import { Container } from './shared/layout/container/container';
 import { Products } from './features/products/products';
 import { CartDrawer } from './shared/ui/cart-drawer/cart-drawer';
+import { Toast } from './shared/ui/toast/toast';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ import { CartDrawer } from './shared/ui/cart-drawer/cart-drawer';
     Header,
     Container,
     Products,
-    CartDrawer
+    CartDrawer,
+    Toast
   ],
   templateUrl: './app.component.html'
 })

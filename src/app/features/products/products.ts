@@ -5,6 +5,7 @@ import { Button } from '../../shared/ui/button/button';
 import { Product } from './models/product.model';
 import { CartService } from '../../core/services/cart.service';
 import { ProductService } from '../../core/services/product.service';
+import { ToastService } from '../../core/services/toast.service';
 
 
 @Component({
@@ -17,6 +18,7 @@ import { ProductService } from '../../core/services/product.service';
 export class Products {
   private cartService = inject(CartService);
   private productService = inject(ProductService);
+  private toast = inject(ToastService)
 
   products = signal<Product[]>([]);
   loading = signal(true);
@@ -39,6 +41,7 @@ export class Products {
   
   addToCart(product:Product){
     this.cartService.add(product);
+    this.toast.show(`${product.name} adicionado ao carrinho`)
   }
 
 }

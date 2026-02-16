@@ -81,6 +81,13 @@
     flex-shrink: 0;
 }
 
+.empty {
+    text-align: center;
+    margin-top: 40px;
+    opacity: 0.6;
+    font-size: 14px;
+}
+
 /* Responsivo */
 @media (max-width: 480px) {
     .drawer {
