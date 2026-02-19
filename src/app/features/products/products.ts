@@ -1,22 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { Card } from '../../shared/ui/card/card';
-import { Button } from '../../shared/ui/button/button';
 import { Product } from './models/product.model';
-import { CartService } from '../../core/services/cart.service';
-import { ProductService } from '../../core/services/product.service';
+import { ProductService } from './services/product.service';
 import { ToastService } from '../../core/services/toast.service';
+import { CartStore } from '../cart/cart.store';
 
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, Card, Button],
+  imports: [CommonModule, Card],
   templateUrl: './products.html',
   styleUrl: './products.scss',
 })
 export class Products {
-  private cartService = inject(CartService);
+  private cartStore = inject(CartStore);
   private productService = inject(ProductService);
   private toast = inject(ToastService)
 
@@ -40,7 +39,7 @@ export class Products {
   }
   
   addToCart(product:Product){
-    this.cartService.add(product);
+    this.cartStore.add(product);
     this.toast.show(`${product.name} adicionado ao carrinho`)
   }
 

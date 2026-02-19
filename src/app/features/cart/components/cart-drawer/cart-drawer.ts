@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { CartService } from '../../../core/services/cart.service';
 import { CommonModule } from '@angular/common';
+import { CartStore } from '../../cart.store';
 
 @Component({
   selector: 'app-cart-drawer',
@@ -10,6 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './cart-drawer.scss',
 })
 export class CartDrawer {
-  cartService = inject(CartService);
+  cartService = inject(CartStore);
 
 }

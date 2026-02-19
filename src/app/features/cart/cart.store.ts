@@ -1,26 +1,20 @@
 import { computed, effect, Injectable, signal } from "@angular/core";
-import { Product } from "../../features/products/models/product.model";
-
-interface CartItem {
-    product: Product;
-    quantity: number;
-}
+import { Product } from "../products/models/product.model";
+import { CartItem } from "./models/cart-item.model";
 
 @Injectable({
     providedIn:'root'
 })
-export class CartService {
+export class CartStore {
     private storagekey = 'cart'
     private _items = signal<CartItem[]>([])
     private _isOpen = signal(false);
 
     constructor(){
-        const stored = localStorage.getItem(this.storagekey);
-        if(stored){
-            this._items.set(JSON.parse(stored));
-        }
+        this._items.set(this.loadFromStorage());
+
         effect(() => {
-            this.saveToStorage(this._items());
+            this.saveToStorage(this._items())
         });
     }
 
@@ -35,6 +29,10 @@ export class CartService {
     readonly totalPrice = computed(() => 
         this._items().reduce((acc, item)=> acc + item.product.price * item.quantity, 0)
     );
+
+    readonly isEmpty = computed(() => this._items().length === 0);
+
+    readonly totalProducts = computed(() => this._items().length);
 
     add(product: Product){
         this._items.update(items => {
@@ -98,5 +96,16 @@ export class CartService {
 
     private saveToStorage(items: CartItem[]){
         localStorage.setItem(this.storagekey, JSON.stringify(items));
+    }
+
+    private loadFromStorage(): CartItem[] {
+        const stored = localStorage.getItem(this.storagekey);
+        if(!stored) return [];
+        try {
+            return JSON.parse(stored);
+        } catch {
+            localStorage.removeItem(this.storagekey);
+            return [];
+        }
     }
 }

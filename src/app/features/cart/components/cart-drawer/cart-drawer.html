@@ -9,7 +9,7 @@
         <div *ngIf="cartService.totalItems() === 0">
             Carrinho vazio
         </div>
-        @if(cartService.items().length === 0) {
+        @if(cartService.isEmpty()) {
         <div class="empty">
             🛒 Seu carrinho está vazio
         </div>

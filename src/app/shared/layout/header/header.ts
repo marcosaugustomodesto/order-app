@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { CartService } from '../../../core/services/cart.service';
 import { CommonModule } from '@angular/common';
+import { CartStore } from '../../../features/cart/cart.store';
 
 @Component({
   selector: 'app-header',
@@ -11,5 +11,5 @@ import { CommonModule } from '@angular/common';
 })
 export class Header {
     //constructor(public cartService: CartService) {}
-    cartService = inject(CartService);
+    cartService = inject(CartStore);
 }

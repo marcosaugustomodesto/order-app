@@ -3,8 +3,7 @@ import { RouterOutlet } from '@angular/router';
 
 import { Header } from './shared/layout/header/header';
 import { Container } from './shared/layout/container/container';
-import { Products } from './features/products/products';
-import { CartDrawer } from './shared/ui/cart-drawer/cart-drawer';
+import { CartDrawer } from './features/cart/components/cart-drawer/cart-drawer';
 import { Toast } from './shared/ui/toast/toast';
 
 @Component({
@@ -14,7 +13,6 @@ import { Toast } from './shared/ui/toast/toast';
     RouterOutlet,
     Header,
     Container,
-    Products,
     CartDrawer,
     Toast
   ],
